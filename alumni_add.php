@@ -9,8 +9,6 @@
 
     $data = json_decode(file_get_contents("php://input"), true); // collect input parameters and convert into readable format
 	
-    echo json_encode($data);
-    die();
 
     $name = $data['name'];
     $enroll = $data['enroll'];
@@ -32,6 +30,8 @@
     $cv_on = $_FILES['cv']['name'];
     
     $pic_name = $name.rand(111,999).$pic_on;
+
+
     $cv_name = $name.rand(111,999).$cv_on;
 
     $pic_type=$_FILES['pic']['type'];
@@ -50,9 +50,6 @@
 
      $sql = "insert into tbl_alumni(name, enrollment, mob, email, fname, branch, marks, year, company, designation, feedback, about, pic, cv, date, status) values('{$name}', '{$enroll}', '{$mob}', '{$email}', '{$fname}' , '{$branch}', '{$marks}', '{$py}', '{$wp}', '{$dg}', '{$fb}', '{$au}', '{$pic_name}', '{$cv_name}', now(), 'N')";
     
-     
-    json_encode(array('message' => $aql, 'status' => true));
-
 
     if(($pic_type=='image/png' or $pic_type=='image/jpg' or $pic_type=='image/jpeg') and ($cv_type=='application/pdf')){
 
@@ -70,7 +67,7 @@
         }
 
     }else{
-        echo json_encode(array('message' => 'Sorry, only JPG, JPEG or PNG files are allowed.', 'status' => false));
+        echo json_encode(array('message' => 'Sorry, Please select correct file type.', 'status' => false));
     }
 
     

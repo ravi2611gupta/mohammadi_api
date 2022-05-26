@@ -5,7 +5,7 @@
 
     require_once("connection.php");
 
-    $query = "select * from tbl_result order by res_id desc limit 1";
+    $query = "select * from tbl_department order by dept_id desc";
     $res = mysqli_query($con, $query) or die("SQL Query Failed.");
 
     if(mysqli_num_rows($res) > 0){
