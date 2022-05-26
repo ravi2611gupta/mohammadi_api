@@ -6,6 +6,7 @@ header("Access-Control-Allow-Methods: PUT, GET, POST");
 
 
 $response = array();
+
 $upload_dir = 'files/alumni_pic/';
 $server_url = 'http://localhost/';
 
