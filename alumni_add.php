@@ -1,14 +1,19 @@
 <?php
 
 
-    header('Content-Type: application/json');
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Method: POST');
-    header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
+    // header('Content-Type: application/json');
+    // header('Access-Control-Allow-Origin: *');
+    // header('Access-Control-Allow-Method: POST');
+    // header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
 
+
+    header('Content-Type: application/json; charset=utf-8');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: PUT, GET, POST");
 
     $data = json_decode(file_get_contents("php://input"), true); // collect input parameters and convert into readable format
 	
+
 
     $name = $data['name'];
     $enroll = $data['enroll'];
@@ -20,15 +25,23 @@
     $py = $data['py'];
     $wp = $data['wp'];
     $dg = $data['dg'];
+
+    isset($data['pic']){
+
+        $pic = $_FILES['pic'];
+        $cv = $_FILES['cv'];
+        
+    
+        $pic_on = $_FILES['pic']['name'];
+        $cv_on = $_FILES['cv']['name'];
+    }
+
     
 
-    $pic = $_FILES['pic'];
-    $cv = $_FILES['cv'];
-    
 
-    $pic_on = $_FILES['pic']['name'];
-    $cv_on = $_FILES['cv']['name'];
-    
+    echo json_encode($pic_name);
+    die();
+
     $pic_name = $name.rand(111,999).$pic_on;
 
 
