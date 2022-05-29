@@ -7,16 +7,18 @@
 
     $data = json_decode(file_get_contents("php://input"), true);
 
-    $link = $data['link'];
+    if(isset($_POST['link'])){
+        $link = $_POST['link'];
 
-    require_once("connection.php");
-
-    $sql = "insert into tbl_result(link, date) values('{$link}', now())";
-
-    if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
-        echo json_encode(array('message' => 'Result added succefully.', 'status' => true)); 
-    }else{
-        echo json_encode(array('message' => 'Sorry, something went wrong.', 'status' => false));
+        require_once("connection.php");
+    
+        $sql = "insert into tbl_result(link, date) values('{$link}', now())";
+    
+        if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
+            echo json_encode(array('message' => 'Result added succefully.', 'status' => true)); 
+        }else{
+            echo json_encode(array('message' => 'Sorry, something went wrong.', 'status' => false));
+        }
+    
     }
-
         

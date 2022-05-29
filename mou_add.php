@@ -23,9 +23,7 @@
         require_once("connection.php");
     
         $sql = "insert into tbl_mou(company, title, file, date) values('{$company}', '{$title}', '{$file_name}', now())";
-        echo json_encode($sql);
-        die();
-    
+       
       
         if($file_type=='application/pdf'){
     
