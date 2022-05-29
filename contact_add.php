@@ -7,6 +7,8 @@
 
     $data = json_decode(file_get_contents("php://input"), true);
 
+    if(isset($data['fname']) and isset($data['lname']) and isset($data['email']) and isset($data['mobile']) and isset($data['message'])){
+
     $fname = $data['fname'];
     $lname = $data['lname'];
     $email = $data['email'];
@@ -41,3 +43,4 @@
     // 	"date" : "2022-04-14 15:36:20"
     // }
 
+    }

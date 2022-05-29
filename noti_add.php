@@ -5,6 +5,7 @@
     header('Access-Control-Allow-Method: POST');
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
 
+
     // $data = json_decode(file_get_contents("php://input"), true);
 
     if(isset($_FILES['file'])){
@@ -18,7 +19,7 @@
     
     
       
-    
+
         require_once("connection.php");
     
         $sql = "insert into tbl_notice(notice, file_name, date) values('{$title}', '{$file_name}', now())";

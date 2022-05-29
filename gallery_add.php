@@ -5,11 +5,15 @@
     header('Access-Control-Allow-Method: POST');
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
 
-    // $data = json_decode(file_get_contents("php://input"), true);
+    $data = json_decode(file_get_contents("php://input"), true);
+    
+    // echo json_encode(array('testing' => 'testing.', 'status' => true));
+    // die();
 
     if(isset($_FILES['file'])){
-        $text1 = $_POST['text1'];
-        $text2 = $_POST['text2'];
+
+        $text1 = $_POST['texta'];
+        $text2 = $_POST['textb'];
         $type = $_POST['type'];
         $file = $_FILES['file']['name'];
     
@@ -17,13 +21,11 @@
         $file_type=$_FILES['file']['type'];
         $file_tmp=$_FILES['file']['tmp_name'];
     
-    
-      
-    
+        
         require_once("connection.php");
     
-        $sql = "insert into tbl_slider(text1, text2, type, pic, date) values('{$text1}','{$text2}','{$type}', '{$file_name}', now())";
-    
+        $sql = "insert into tbl_gallery(text1, text2, type, pic, date) values('{$text1}','{$text2}','{$type}', '{$file_name}', now())";
+     
       
         if($file_type=='image/png' or $file_type=='image/jpg' or $file_type=='image/jpeg'){
     

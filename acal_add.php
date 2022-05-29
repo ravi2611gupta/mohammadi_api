@@ -6,6 +6,7 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
 
     // $data = json_decode(file_get_contents("php://input"), true);
+    
 
     if(isset($_FILES['file'])){
         
@@ -17,8 +18,7 @@
     
         $file_tmp=$_FILES['file']['tmp_name'];
     
-    
-      
+
     
         require_once("connection.php");
     

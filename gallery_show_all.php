@@ -5,7 +5,7 @@
 
     require_once("connection.php");
 
-    $query = "select * from tbl_gallery where type='gallery' order by gal_id desc";
+    $query = "select * from tbl_gallery order by gal_id desc";
     $res = mysqli_query($con, $query);
 
     if(mysqli_num_rows($res)>0){
