@@ -7,11 +7,11 @@
 
     $data = json_decode(file_get_contents("php://input"), true);
 
-    $title = $data['title'];
-    $branch = $data['branch'];
-    $year = $data['year'];
-    $sub = $data['sub'];
-    $url = $data['url'];
+    $title = $_POST['title'];
+    $branch = $_POST['branch'];
+    $year = $_POST['year'];
+    $sub = $_POST['sub'];
+    $url = $_POST['url'];
 
 
     require_once("connection.php");
