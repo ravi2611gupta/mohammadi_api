@@ -6,7 +6,7 @@
     header('Access-Control-Allow-Method: POST');
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
 
-    
+
     if(isset($_FILES['pic']) and isset($_FILES['cv'])){
         
         // $data = json_decode(file_get_contents("php://input"), true); // collect input parameters and convert into readable format

@@ -2,12 +2,12 @@
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Method: DELETE');
+header('Access-Control-Allow-Method: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Method, Authorization');
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$aicte_id = $data['aicte_id'];
+$aicte_id = $data;
 
 require_once("connection.php");
 

@@ -5,7 +5,7 @@
 
     require_once("connection.php");
 
-    $query = "select * from tbl_grievance order by g_id desc";
+    $query = "select * from tbl_grievance where status='N' order by g_id desc";
     $res = mysqli_query($con, $query) or die("SQL Query Failed.");
 
     if(mysqli_num_rows($res) > 0){
