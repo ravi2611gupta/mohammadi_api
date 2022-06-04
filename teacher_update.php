@@ -14,22 +14,20 @@ if(isset($_FILES['file']))
 {
     $data = json_decode(file_get_contents("php://input"), true);
    
-    $id=$_POST['t_id'];
+    $id=$_POST['tech_id'];
 
     $name=$_POST['name'];
     //echo $name;
     $fname=$_POST['fname'];
     $dob=$_POST['dob'];
-    $gender=$_POST['gender'];
-    $mobile=$_POST['mobile'];
+    $gender=$_POST['gen'];
+    $mobile=$_POST['mob'];
     $email=$_POST['email'];
-    $dept=$_POST['dept'];
-    $desig=$_POST['designation'];
+    $dept=$_POST['branch'];
+    $desig=$_POST['deg'];
     $quali=$_POST['quali'];
     $address=$_POST['address'];
     
-    echo json_encode($_FILES['file']);
-    die();
 
             if($_FILES['file']['type']=="image/jpg" || $_FILES['file']['type']=="image/png" || $_FILES['file']['type']=="image/jpeg" )
             {
@@ -78,27 +76,31 @@ if(isset($_FILES['file']))
         // echo json_encode($data);
         // die();
 
-        $id=$data['t_id'];
+        $id=$_POST['tech_id'];
 
-        $name=$data['name'];
+        $name=$_POST['name'];
         //echo $name;
-        $fname=$data['fname'];
-        $dob=$data['dob'];
-        $gender=$data['gender'];
-        $mobile=$data['mobile'];
-        $email=$data['email'];
-        $dept=$data['dept'];
-        $desig=$data['designation'];
-        $quali=$data['quali'];
-        $address=$data['address'];
+        $fname=$_POST['fname'];
+        $dob=$_POST['dob'];
+        $gender=$_POST['gen'];
+        $mobile=$_POST['mob'];
+        $email=$_POST['email'];
+        $dept=$_POST['branch'];
+        $desig=$_POST['deg'];
+        $quali=$_POST['quali'];
+        $address=$_POST['address'];
 
 
-        $q="update tbl_teacher set name=' $name', dob='$dob', fname='$fname', gender='$gender', mobile='$mobile', email='$email', dept_id='$dept', designation='$desig', qualification='$quali', address='$address' where tech_id='$id'";
+        $q="update tbl_teacher set name='$name', dob='$dob', fname='$fname', gender='$gender', mobile='$mobile', email='$email', dept_id='$dept', designation='$desig', qualification='$quali', address='$address' where tech_id='$id'";
         
         $res=mysqli_query($con,$q);
         if($res!=null)
         {
-            echo json_encode(array('message' => 'Data updated successfully.', 'status' => true));
+            echo json_encode(array('message' => 'Teacher updated successfully.', 'status' => true));
+        }
+        else
+        {
+            echo json_encode(array('message' => 'Data not updated !!!', 'status' => false));
         }
 
     }
