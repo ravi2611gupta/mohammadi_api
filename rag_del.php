@@ -11,7 +11,7 @@ $rag_id = $data;
 
 require_once("connection.php");
 
-    $sql = "update tbl_rag set status='Y' where rag_id = {$rag_id}";
+    $sql = "delete from tbl_rag where rag_id = {$rag_id}";
 
     if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
         echo json_encode(array('message' => 'Data Deleted.', 'status' => true));    

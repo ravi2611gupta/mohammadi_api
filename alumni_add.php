@@ -61,7 +61,8 @@
     
         require_once("connection.php");
     
-        
+    if(isset($_FILES['pic']) && isset($_FILES['cv']) && isset($_POST['name']) && isset($_POST['enroll']) && isset($_POST['mob']) && isset($_POST['email']) && isset($_POST['fname']) && isset($_POST['branch']) && isset($_POST['marks']) && isset($_POST['py']) && isset($_POST['wp']) && isset($_POST['dg']) && isset($_POST['au']) && isset($_POST['fb'])){
+            
      $sql = "insert into tbl_alumni(name, enrollment, mob, email, fname, branch, marks, year, company, designation, feedback, about, pic, cv, date, status) values('{$name}', '{$enroll}', '{$mob}', '{$email}', '{$fname}' , '{$branch}', '{$marks}', '{$py}', '{$wp}', '{$dg}', '{$fb}', '{$au}', '{$pic_name}', '{$cv_name}', now(), 'N')";
     
 
@@ -89,3 +90,4 @@
 
    
 
+    }

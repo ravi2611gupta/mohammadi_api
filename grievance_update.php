@@ -11,10 +11,10 @@ $grc_id = $data;
 
 require_once("connection.php");
 
-    $sql = "delete from tbl_grievance where g_id = {$grc_id}";
+    $sql = "update tbl_grievance set status='Y' where g_id = {$grc_id}";
 
     if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
-        echo json_encode(array('message' => 'Grievance Deleted.', 'status' => true));    
+        echo json_encode(array('message' => 'Grievance Updated.', 'status' => true));    
     }else{
         echo json_encode(array('message' => 'Sorry, something went wrong.', 'status' => false));
     }

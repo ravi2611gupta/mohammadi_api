@@ -7,14 +7,14 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$grc_id = $data;
+$rag_id = $data;
 
 require_once("connection.php");
 
-    $sql = "delete from tbl_grievance where g_id = {$grc_id}";
+    $sql = "update tbl_rag set status='Y' where rag_id = {$rag_id}";
 
     if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
-        echo json_encode(array('message' => 'Grievance Deleted.', 'status' => true));    
+        echo json_encode(array('message' => 'Data Updated.', 'status' => true));    
     }else{
         echo json_encode(array('message' => 'Sorry, something went wrong.', 'status' => false));
     }

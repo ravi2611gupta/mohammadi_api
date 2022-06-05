@@ -18,12 +18,14 @@
 
     require_once("connection.php");
 
-    $sql = "insert into tbl_grievance
-    (stu_name, enroll_no, mobile, email, subject, msg, status, date) values('{$name}', '{$enroll}', '{$mob}', '{$email}', '{$sub}' , '{$msg}', 'N', now())";
+    if(isset($data['name']) && isset($data['enroll']) && isset($data['mob']) && isset($data['email']) && isset($data['sub']) && isset($data['msg'])){
+        
+        $sql = "insert into tbl_grievance (stu_name, enroll_no, mobile, email, subject, msg, status, date) values('{$name}', '{$enroll}', '{$mob}', '{$email}', '{$sub}' , '{$msg}', 'N', now())";
 
-    if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
-        echo json_encode(array('message' => 'Student Record Inserted.', 'status' => true)); 
-    }else{
-        echo json_encode(array('message' => 'Student Record Not Inserted.', 'status' => false));
+        if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
+            echo json_encode(array('message' => 'Student Record Inserted.', 'status' => true)); 
+        }else{
+            echo json_encode(array('message' => 'Student Record Not Inserted.', 'status' => false));
+        }
+
     }
-

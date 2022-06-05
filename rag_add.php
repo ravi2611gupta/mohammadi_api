@@ -23,7 +23,9 @@
 
     require_once("connection.php");
 
-    $sql = "insert into tbl_rag(stu_name, enroll_no, gen, parent_name, stu_email, stu_mob, parent_mob, course, year, address, complaint, status, date) values('{$name}', '{$enroll}', '{$gen}', '{$gname}', '{$email}' , '{$mob}', '{$gmob}', '{$branch}', '{$year}', '{$add}', '{$msg}', 'N', now())";
+    if(isset($data['name']) && isset($data['enroll']) && isset($data['mob']) && isset($data['email']) && isset($data['gname']) && isset($data['gmob']) && isset($data['branch']) && isset($data['year']) && isset($data['gen']) && isset($data['add']) && isset($data['msg'])){
+
+        $sql = "insert into tbl_rag(stu_name, enroll_no, gen, parent_name, stu_email, stu_mob, parent_mob, course, year, address, complaint, status, date) values('{$name}', '{$enroll}', '{$gen}', '{$gname}', '{$email}' , '{$mob}', '{$gmob}', '{$branch}', '{$year}', '{$add}', '{$msg}', 'N', now())";
 
     if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
         echo json_encode(array('message' => 'Student Record Inserted.', 'status' => true)); 
@@ -31,3 +33,4 @@
         echo json_encode(array('message' => 'Student Record Not Inserted.', 'status' => false));
     }
 
+}

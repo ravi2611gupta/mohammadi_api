@@ -5,7 +5,7 @@
 
     require_once("connection.php");
 
-    $query = "select * from tbl_rag where status='N' order by rag_id desc";
+    $query = "select * from tbl_rag order by rag_id desc";
     $res = mysqli_query($con, $query) or die("SQL Query Failed.");
 
     if(mysqli_num_rows($res) > 0){

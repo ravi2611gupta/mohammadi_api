@@ -18,6 +18,8 @@
 
     require_once("connection.php");
 
+    if(isset($data['fname']) && isset($data['lname']) && isset($data['email']) && isset($data['mobile']) && isset($data['message'])){
+        
     $sql = "insert into tbl_contact(fname, lname, email, mobile, message, date) values('{$fname}', '{$lname}', '{$email}', '{$mobile}', '{$message}', now())";
 
     if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
@@ -26,6 +28,7 @@
         echo json_encode(array('message' => 'Sorry, something went wrong.', 'status' => false));
     }
 
+    }
         
     // use this in "postman" or in "thunder client" for inserting the data.
 
