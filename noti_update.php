@@ -10,10 +10,11 @@
 
     require_once("connection.php");
 
-    if(isset($_FILES['file']) && isset($_POST['title']) && isset($_POST['file_id'])){
+    if(isset($_FILES['file']) && isset($_POST['type']) && isset($_POST['title']) && isset($_POST['file_id'])){
 
         $file_id = $_POST['file_id'];
         $title = $_POST['title'];
+        $type = $_POST['type'];
         $file = $_FILES['file']['name'];
         
         $file_name = rand(111,999).$file;
@@ -33,7 +34,7 @@
                 unlink('files/notice/'.$rowc['file_name']);
 
 
-                $sql = "update tbl_notice set notice = '{$title}', file_name='{$file_name}' where file_id = '{$file_id}'";
+                $sql = "update tbl_notice set notice = '{$title}', type='{$type}', file_name='{$file_name}' where file_id = '{$file_id}'";
     
                 if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
                     echo json_encode(array('message' => 'Notice Updated successfully.', 'status' => true)); 
@@ -49,12 +50,13 @@
             echo json_encode(array('message' => 'Sorry, Please select correct file type.', 'status' => false));
         }
     
-    }elseif(isset($_POST['title']) && isset($_POST['file_id'])){
+    }elseif(isset($_POST['title']) && isset($_POST['type']) && isset($_POST['file_id'])){
         
         $file_id = $_POST['file_id'];
         $title = $_POST['title'];
+        $type = $_POST['type'];
 
-        $sql = "update tbl_notice set notice = '{$title}' where file_id = '{$file_id}'";
+        $sql = "update tbl_notice set notice = '{$title}', type='{$type}' where file_id = '{$file_id}'";
 
         if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
             echo json_encode(array('message' => 'Notice Updated successfully.', 'status' => true)); 

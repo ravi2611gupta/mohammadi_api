@@ -10,6 +10,7 @@
 
     if(isset($_FILES['file'])){
         $title = $_POST['title'];
+        $type = $_POST['type'];
         $file = $_FILES['file']['name'];
         $file_name = rand(111,999).$file;
     
@@ -22,7 +23,7 @@
 
         require_once("connection.php");
     
-        $sql = "insert into tbl_notice(notice, file_name, date) values('{$title}', '{$file_name}', now())";
+        $sql = "insert into tbl_notice(notice, type, file_name, date) values('{$title}', '{$type}', '{$file_name}', now())";
     
       
         if($file_type=='application/pdf'){
