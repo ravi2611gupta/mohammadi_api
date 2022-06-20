@@ -23,7 +23,7 @@
     $sql = "insert into tbl_contact(fname, lname, email, mobile, message, date) values('{$fname}', '{$lname}', '{$email}', '{$mobile}', '{$message}', now())";
 
     if(mysqli_query($con, $sql) or die("SQL Query Failed.")){
-        echo json_encode(array('message' => 'Message sent succefully.', 'status' => true)); 
+        echo json_encode(array('message' => 'Message sent successfully.', 'status' => true)); 
     }else{
         echo json_encode(array('message' => 'Sorry, something went wrong.', 'status' => false));
     }
